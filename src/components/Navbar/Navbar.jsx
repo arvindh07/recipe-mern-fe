@@ -5,11 +5,10 @@ import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
-    const[cookies, setCookies] = useCookies(["access_token"]);
+    const [cookies, setCookies] = useCookies(["access_token"]);
     const navigate = useNavigate();
-    console.log("coo -> ",cookies);
-    const logout  = () => {
-        setCookies("access_token","");
+    const logout = () => {
+        setCookies("access_token", "");
         window.localStorage.removeItem("userId");
         navigate("/auth");
     }
@@ -26,9 +25,7 @@ const Navbar = () => {
                     <Link to="/createrecipe" className='px-2'>
                         Create Recipe
                     </Link>
-                    <Link to="/savedrecipes" className='px-2'>
-                        Saved Recipes
-                    </Link>
+
                 </ul>
             </div>
             <div className='flex'>
@@ -37,9 +34,10 @@ const Navbar = () => {
                         <Link to="/auth">Login/ Register</Link>
                     </ul>) :
                     (<ul className='px-2'>
+                        <Link to="/savedrecipes" className='px-2'>Saved Recipes</Link>
                         <button onClick={logout}>Logout</button>
                     </ul>
-                )}
+                    )}
             </div>
 
         </nav>
