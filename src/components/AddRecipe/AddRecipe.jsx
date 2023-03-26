@@ -43,7 +43,7 @@ const AddRecipe = () => {
   const handleAddRecipe = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/recipe",recipeDetails,{
+      await axios.post("https://recipe-be-fd7h.onrender.com/recipe",recipeDetails,{
         headers: {
           authorization: cookies.access_token
         }

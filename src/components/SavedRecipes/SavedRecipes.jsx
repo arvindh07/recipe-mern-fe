@@ -9,7 +9,7 @@ const SavedRecipes = () => {
   useEffect(() => {
     const getSavedRecipes = async() => {
       try {
-        const response = await axios.get(`http://localhost:3001/recipe/saved-recipes/user/${userId}`);
+        const response = await axios.get(`https://recipe-be-fd7h.onrender.com/recipe/saved-recipes/user/${userId}`);
         console.log("rrr",response);
         setSavedRecipes(response.data.savedRecipes);
       } catch (error) {
